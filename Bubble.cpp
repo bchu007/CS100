@@ -171,7 +171,7 @@ class MergeSort : public SortAlgorithm {
 		
 	public:
 		virtual void sort(Container* c) {
-			cout << "MERGESORT: " << endl; //test
+			cout << "MERGESORT: " << flush; //test
 		}
 };
 
@@ -205,10 +205,12 @@ int main() {
 	cout << "vector merge sort" << endl;
 	VectorContainer vc2;
 	SortAlgorithm* ms = new MergeSort();
+	cout << "BEFORE: ";
 	vc2.print();
 	vc2.set_sort(ms);
 	vc2.sort();
 	vc2.print();
+	cout << endl;
 
 	//filled vector bubble sort
 	cout << "filled vector bubble sort" << endl;
@@ -267,34 +269,57 @@ int main() {
 	lc1.set_sort(ss2);
 	lc1.sort();
 	lc1.print();	
+	cout << endl;
 
 	//list merge sort
 	cout << "list merge sort" << endl;
 	VectorContainer lc2;
-	SortAlgorithm* ms = new MergeSort();
+	SortAlgorithm* ms2 = new MergeSort();
+	cout << "BEFORE: ";
 	lc2.print();
 	lc2.set_sort(ms);
 	lc2.sort();
 	lc2.print();
-
+	cout << endl;
 
 	//filled list buble sort
 	cout << "list bubble sort" << endl;
 	ListContainer lc3;
 	SortAlgorithm*  bs3 = new BubbleSort();
 	cout << "BEFORE: ";
+	lc3.randHun(20);
 	lc3.print();	
-	lc3.set_sort(bs2);
-	lc3.sort();
+	lc3.set_sort(bs3);
+//	lc3.sort();
 	lc3.print();
 	cout << endl;
 
 
 
 	//filled list selection sort
-	
+	cout << "list selection sort" << endl;
+	ListContainer lc4;
+	SortAlgorithm* ss3 = new SelectionSort();
+	cout << "BEFORE: ";
+	lc4.randHun(20);
+	lc4.print();
+	lc4.set_sort(ss3);
+	lc4.sort();
+	lc4.print();
+	cout << endl;
+
 
 	//filled list merge sort
+	cout << "list merge sort" << endl;
+	ListContainer lc5;
+	SortAlgorithm* ms3 = new MergeSort();
+	cout << "BEFORE: ";
+	lc5.randHun(20);
+	lc5.print();
+	lc5.set_sort(ms3);
+	lc5.sort();
+	lc5.print();
+	cout << endl;
 	
 	delete bs;
 	delete ms;
