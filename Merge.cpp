@@ -176,12 +176,17 @@ class BubbleSort : SortAlgorithm
 		virtual void sort(Container* c) 
 		{
 			cout << "Bubble Sort" << endl;
-			/*
-			for(int i = 0; i ) 
+			int size = c->size();
+			for(int i = 0; i < size - 1; i++)
 			{
-				for(int j = 0; j < 
-				*/
-		
+				for(int j = 0; j < (size - i - 1); j++)
+				{
+					if(c->at(j) > c->at(j+1))
+					{
+						c->swap(j, j+1);
+					}
+				}
+			}	
 		}
 };
 
@@ -190,10 +195,33 @@ class SelectionSort : SortAlgorithm
 	private:
 		
 	public:
+
 		virtual void sort(Container* c) 
 		{
-			cout << "Selection Sort" << endl;
+			cout << "SELECTIONSORT: " << flush;
+			int n = c->size();
+			int pos_min, temp;
+
+			for(int i=0; i< n-1; i++)
+			{
+				pos_min = i;// set pos_min to the current index
+
+					for(int j = i+1; j< n; j++)
+					{
+						if(c->at(j) < c->at(pos_min))	
+						{
+							pos_min = j;
+						}
+					}
+				if(pos_min != i)
+				{
+					temp = c->at(i);
+					c->swap(i,pos_min);
+				}
+			
+			}
 		}	
+
 };
 
 class MergeSort : public SortAlgorithm 
